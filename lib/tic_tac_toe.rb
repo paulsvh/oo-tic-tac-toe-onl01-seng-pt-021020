@@ -74,14 +74,12 @@ WIN_COMBINATIONS = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8
   end
 
   def won?
-<<<<<<< HEAD
      WIN_COMBINATIONS.any? do |combo|
        if position_taken?(combo[0]) && @board[combo[0]] == @board[combo[1]] && @board[combo[1]] == @board[combo[2]]
          return combo
        end
      end
    end
-=======
     win_combo = nil
     WIN_COMBINATIONS.each do |arr|
       if @board[arr[0]] == @board[arr[1]] && @board[arr[1]] == @board[arr[2]]
@@ -90,7 +88,6 @@ WIN_COMBINATIONS = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8
     end
     win_combo
   end
->>>>>>> fe3ceb2286812a2c7304b69adfcb2a1206783ab0
 
   def full?
     !@board.any?{|i| i == " "}
@@ -105,22 +102,18 @@ WIN_COMBINATIONS = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8
   end
 
   def winner
-<<<<<<< HEAD
     if combo = won?
       @board[combo[0]]
-=======
     if @board[self.won?[0]] == "X"
       "X"
     elsif @board[self.won?[0]] == "O"
       "O"
     else
       nil
->>>>>>> fe3ceb2286812a2c7304b69adfcb2a1206783ab0
     end
   end
 
   def play
-<<<<<<< HEAD
     self.turn while !self.over?
     if self.won?
       puts "Congratulations #{winner}!"
@@ -128,11 +121,7 @@ WIN_COMBINATIONS = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8
       puts "Cat's Game!"
     end
   end
-=======
    turn until draw? || over? || won?
    puts winner ? "Congratulations #{winner}!" : "Cat's Game!"
  end
->>>>>>> fe3ceb2286812a2c7304b69adfcb2a1206783ab0
-
-
 end
