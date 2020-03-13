@@ -74,20 +74,12 @@ WIN_COMBINATIONS = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8
   end
 
   def won?
-     WIN_COMBINATIONS.any? do |combo|
-       if position_taken?(combo[0]) && @board[combo[0]] == @board[combo[1]] && @board[combo[1]] == @board[combo[2]]
-         return combo
-       end
+   WIN_COMBINATIONS.any? do |combo|
+     if position_taken?(combo[0]) && @board[combo[0]] == @board[combo[1]] && @board[combo[1]] == @board[combo[2]]
+       return combo
      end
    end
-    win_combo = nil
-    WIN_COMBINATIONS.each do |arr|
-      if @board[arr[0]] == @board[arr[1]] && @board[arr[1]] == @board[arr[2]]
-        win_combo = arr
-      end
-    end
-    win_combo
-  end
+ end
 
   def full?
     !@board.any?{|i| i == " "}
